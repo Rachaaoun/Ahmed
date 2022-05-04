@@ -1,0 +1,113 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New Hebergement{% endblock %}
+
+{% block body %}
+    <h1>Create new Hebergement</h1>
+
+   {#  {{ include('hebergement/_form.html.twig') }}#}
+
+
+
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                <div class="form-horizontal style-form">
+
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nom :</label>
+                        <div class="col-sm-10">
+                            {{ form_errors(form.nom) }}
+                            {{ form_widget(form.nom,{'attr': {'class': 'form-control' , 'placeholder' : ''}}) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">adresse : </label>
+                        <div class="col-sm-10">
+                            {{ form_errors(form.adresse) }}
+                            {{ form_widget(form.adresse,{'attr': {'class': 'form-control' , 'placeholder' : ''}}) }}
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">type : </label>
+                        <div class="col-sm-10">
+                            {{ form_errors(form.type) }}
+                            {{ form_widget(form.type,{'attr': {'class': 'form-control' , 'placeholder' : ''}}) }}
+
+
+                        </div>
+                    </div>
+
+
+                    {#     <div class="form-group">
+            <label for="selection">ListHotel :</label>
+            <div class="col-sm-10">
+                {{ form_errors(form.listHotel) }}
+
+
+            <select id="selection" class="form-control">
+                <option value="">Liste de choix...</option>
+
+                    <option value="">Sindbad 1</option>
+                    <option value="">Geroge V </option>
+                    <option value="">Badira</option>
+
+            </select>
+            </div>
+        </div> #}
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">nbrChambre :</label>
+                        <div class="col-sm-10">
+                            {{ form_errors(form.nbrChambre) }}
+                            {{ form_widget(form.nbrChambre,{'attr': {'class': 'form-control' , 'placeholder' : ''}}) }}
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">typeChambre :</label>
+                        <div class="col-sm-10">
+                            {{ form_errors(form.typeChambre) }}
+                            {{ form_widget(form.typeChambre,{'attr': {'class': 'form-control' , 'placeholder' : ''}}) }}
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <button class="btn">{{ button_label|default('Save') }}</button>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="{{ path('app_hebergement_index') }}">back to list</a>
+{% endblock %}

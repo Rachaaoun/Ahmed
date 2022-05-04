@@ -1,0 +1,42 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Hebergement{% endblock %}
+
+{% block body %}
+    <h1>Hebergement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hebergement.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ hebergement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ hebergement.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ hebergement.type }}</td>
+            </tr>
+            <tr>
+                <th>NbrChambre</th>
+                <td>{{ hebergement.nbrChambre }}</td>
+            </tr>
+            <tr>
+                <th>TypeChambre</th>
+                <td>{{ hebergement.typeChambre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hebergement_index') }}">back to list</a>
+
+    <a href="{{ path('app_hebergement_edit', {'id': hebergement.id}) }}">edit</a>
+
+    {{ include('hebergement/_delete_form.html.twig') }}
+{% endblock %}

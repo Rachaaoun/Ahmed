@@ -1,0 +1,45 @@
+{% extends 'Base_admin.html.twig' %}
+
+{% block title %}Hebergement index{% endblock %}
+
+{% block body %}
+    <h1>Hebergement index</h1>
+    {% include 'hebergement/_filtre.html.twig' with {form : form} only %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Type</th>
+            <th>NbrChambre</th>
+            <th>TypeChambre</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for hebergement in hebergements %}
+            <tr>
+                <td>{{ hebergement.id }}</td>
+                <td>{{ hebergement.nom }}</td>
+                <td>{{ hebergement.adresse }}</td>
+                <td>{{ hebergement.type }}</td>
+                <td>{{ hebergement.nbrChambre }}</td>
+                <td>{{ hebergement.typeChambre }}</td>
+                <td>
+                    <a href="{{ path('app_hebergement_show', {'id': hebergement.id}) }}"><button type="button" class="btn btn-danger">Show</button></a>
+                    <a href="{{ path('app_hebergement_edit', {'id': hebergement.id}) }}"><button type="button" class="btn btn-success">edit</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('app_hebergement_new') }}"><button type="button" class="btn btn-primary">Create new</button></a>
+{% endblock %}
